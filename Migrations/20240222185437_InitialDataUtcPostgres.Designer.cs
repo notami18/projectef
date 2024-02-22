@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using projectef;
@@ -11,9 +12,11 @@ using projectef;
 namespace projectef.Migrations
 {
     [DbContext(typeof(TaksContext))]
-    partial class TaksContextModelSnapshot : ModelSnapshot
+    [Migration("20240222185437_InitialDataUtcPostgres")]
+    partial class InitialDataUtcPostgres
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,10 +73,10 @@ namespace projectef.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("Deadline")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -97,8 +100,8 @@ namespace projectef.Migrations
                         {
                             TaskId = new Guid("9d4d244f-d5cf-4b5d-a6f8-c585c6008876"),
                             CategoryId = new Guid("9d4d244f-d5cf-4b5d-a6f8-c585c6008874"),
-                            Date = new DateTime(2024, 2, 22, 18, 56, 31, 609, DateTimeKind.Utc).AddTicks(670),
-                            Deadline = new DateTime(2024, 2, 23, 18, 56, 31, 609, DateTimeKind.Utc).AddTicks(670),
+                            Date = new DateTime(2024, 2, 22, 18, 54, 37, 844, DateTimeKind.Utc).AddTicks(9790),
+                            Deadline = new DateTime(2024, 2, 23, 18, 54, 37, 844, DateTimeKind.Utc).AddTicks(9800),
                             Description = "Pagos adicionales de servicios publicos",
                             PriorityTask = 1,
                             Title = "Pago servicios publicos"
@@ -107,8 +110,8 @@ namespace projectef.Migrations
                         {
                             TaskId = new Guid("9d4d244f-d5cf-4b5d-a6f8-c585c6008877"),
                             CategoryId = new Guid("9d4d244f-d5cf-4b5d-a6f8-c585c6008875"),
-                            Date = new DateTime(2024, 2, 22, 18, 56, 31, 609, DateTimeKind.Utc).AddTicks(680),
-                            Deadline = new DateTime(2024, 2, 24, 18, 56, 31, 609, DateTimeKind.Utc).AddTicks(680),
+                            Date = new DateTime(2024, 2, 22, 18, 54, 37, 844, DateTimeKind.Utc).AddTicks(9810),
+                            Deadline = new DateTime(2024, 2, 24, 18, 54, 37, 844, DateTimeKind.Utc).AddTicks(9810),
                             PriorityTask = 0,
                             Title = "Terminar de ver pelicula en netflix"
                         });
