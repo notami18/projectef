@@ -20,6 +20,8 @@ namespace projectef.Models
 
     //[NotMapped] // This property will not be mapped to the database
     public string? Resumen { get; set; }
+
+    public DateTime Deadline { get; set; }
   }
 
   public enum Priority

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace projectef
 {
-  public class TaksContext: DbContext
+  public class TaksContext : DbContext
   {
     public DbSet<Category> Categories { get; set; }
     public DbSet<projectef.Models.Task> Tasks { get; set; }
@@ -25,6 +25,8 @@ namespace projectef
           .HasMaxLength(150);
 
         category.Property(c => c.Description);
+
+        category.Property(c => c.Weight);
       });
 
       modelBuilder.Entity<projectef.Models.Task>(task =>
@@ -40,6 +42,7 @@ namespace projectef
         task.Property(t => t.Description);
         task.Property(t => t.PriorityTask);
         task.Property(t => t.Date);
+        task.Property(t => t.Deadline);
 
         task.Ignore(t => t.Resumen);
       });
